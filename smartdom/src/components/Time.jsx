@@ -6,14 +6,15 @@ function Time() {
     useEffect(() => {
         setInterval(() => {
             const date = new Date()
-            setClockState(date.toLocaleTimeString())
-            setDateState(date.toDateString())
+            setClockState(date.toLocaleTimeString("pl-PL"))
+            setDateState(date.toLocaleDateString("pl-PL"))
         }, 1000)
     }, [])
 
 
     return (
-        <div className="text-white h-[3%] bg-gray-600 text-2xl flex w-full justify-between gap-px items-center rounded-tl-2xl rounded-tr-2xl p-5">
+        <div className="text-white text-2xl h-[4%] bg-neutral-800 text-2xl flex w-full justify-between gap-px items-center
+         p-5 font-body font-bold">
             <a>{dateState} </a>
             <a>{clockState} </a>
         </div>
