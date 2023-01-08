@@ -1,9 +1,11 @@
-import Time from "./Time.jsx";
+import NavBar from "./NavBar.jsx";
+import Weather from "./Weather.jsx";
 
 function Home() {
     return (
         <section className="w-full bg-neutral-900 h-screen">
-            <Time/>
+            <NavBar/>
+            <Weather />
         </section>
     )
 }
