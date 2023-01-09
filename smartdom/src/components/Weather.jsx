@@ -1,43 +1,40 @@
 import {useEffect, useState} from "react";
 
-const api = {
-    key: "45dc2c6b694b701dffb02713df0ba8df",
-}
-
 function Weather() {
     const [weather, setWeather] = useState([{}]);
+    const [loading, setLoading] = useState(true);
 
 
     useEffect(() => {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=strzałkowo&units=metric&APPID=${api.key}`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=strzałkowo&lang=pl&units=metric&APPID=${import.meta.env.VITE_KEY}`)
             .then(res => res.json())
             .then(result => {
-                setWeather(result)
+                setWeather(result);
+                setLoading(false);
+            })
+            .catch(e =>{
+                console.log(e);
             })
     }, [])
 
 
     return (
-        <div className="weather-data">
+        <div className="text-white text-3xl font-rubik float-right p-10 w-1/2">
+
             {
                 weather.main ? (
-                    <div className="weather-data">
-                        <p>{weather.name}</p>
-                        <img className="weather-image"
+                    <div className="grid grid-rows-2 grid-cols-2 gap-3 text-center justify-center items-center border-2 border-blue-500 p-5 rounded-2xl">
+                        <p className="text">{Math.round(weather.main.temp)}°C</p>
+                        <img className="ml-auto mr-auto items-stretch row-span-2 w-1/2"
                              src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
                              alt="weather_icon"/>
-                        <p className="temp">{Math.round(weather.main.temp)}°C</p>
-                        <p>{weather.weather[0].main}</p>
+                        <p className="text-lg">{weather.weather[0].description}</p>
                     </div>
                 ) : (
-                    <div>
-                        <p className="inscription">chuj w dupe</p>
+                    <div className="">
+                        {loading && <p className="">Loading...</p>}
                     </div>
                 )}
-
-            {weather.cod === "404" && (
-                <p>Error</p>
-            )}
         </div>
     );
 }

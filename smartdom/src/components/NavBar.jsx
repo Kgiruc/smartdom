@@ -13,12 +13,12 @@ function NavBar() {
 
 
     return (
-        <div className="text-white text-xl h-[4%] bg-neutral-800 text-2xl flex w-full justify-between gap-px items-center
-         p-7 font-body font-bold">
+        <nav className="text-white text-xl h-[4%] bg-neutral-800 text-2xl flex w-full justify-between gap-px items-center
+         p-7 font-nunito font-bold">
             <a>{dateState} </a>
             <a className="text-blue-500 text-3xl">SmartDom</a>
             <a>{clockState} </a>
-        </div>
+        </nav>
     )
 }
 

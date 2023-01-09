@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily : {
-        body: ['Nunito']
+        nunito: ['Nunito'],
+        rubik: ['Rubik']
       }
     },
   },
