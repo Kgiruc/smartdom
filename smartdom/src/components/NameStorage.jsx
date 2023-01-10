@@ -4,23 +4,19 @@ const nameLocalStorage = JSON.parse(localStorage.getItem("name"))
 
 function NameStorage() {
     const [name, setName] = useState(nameLocalStorage);
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        alert(`The name you entered was: ${name}`)
-    }
-
     useEffect(() => {
         localStorage.setItem("name", JSON.stringify(name))
     }, [name])
 
+
     return (
         <div>
         {
-            name ? (<div>
+            nameLocalStorage ? (<div>
                     <p>Witaj {name} </p>
                 </div>):(
                     <div>
-                        <form onSubmit={handleSubmit}>
+                        <form>
                             <label>
                                 Twoje imię:
                                 <input
