@@ -24,11 +24,11 @@ function Weather() {
                 weather.main ? (
                     <div
                         className="grid grid-rows-2 grid-cols-2 gap-3 text-center justify-center items-center border-2 border-blue-500 p-5 rounded-2xl">
-                        <p className="text">{Math.round(weather.main.temp)}°C</p>
+                        <p className="text-5xl font-bold">{Math.round(weather.main.temp)}°C</p>
                         <img className="ml-auto mr-auto items-stretch row-span-2 w-1/2"
                              src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
                              alt="weather_icon"/>
-                        <p className="text-lg">{weather.weather[0].description}</p>
+                        <p className="text-xl">{weather.weather[0].description}</p>
                     </div>
                 ) : (
                     <div className="w-1/2">

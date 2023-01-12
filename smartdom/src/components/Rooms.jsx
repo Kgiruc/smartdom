@@ -12,6 +12,7 @@ function Rooms() {
             .then(data => {
                 setRoom(data);
             })
+            .catch(e => console.log(e))
     }, [])
 
     return (
