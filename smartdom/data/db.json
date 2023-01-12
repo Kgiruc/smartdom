@@ -4,12 +4,14 @@
       "temp": 15,
       "fan": 1,
       "air": 15,
+      "name": "na dole",
       "id": 1
     },
     {
       "temp": 25,
       "fan": 0,
       "air": 10,
+      "name": "u góry 1",
       "id": 2
     }
   ]
