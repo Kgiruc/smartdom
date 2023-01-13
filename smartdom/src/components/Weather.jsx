@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import gif_loading from "../assets/gif/loading.gif";
+import NameStorage from "./NameStorage.jsx";
 
 function Weather() {
     const [weather, setWeather] = useState([{}]);
@@ -30,6 +31,7 @@ function Weather() {
                              alt="weather_icon"/>
                         <p className="text-xl">{weather.weather[0].description}</p>
                     </div>
+
                 ) : (
                     <div className="w-1/2">
                         {loading && <img src={gif_loading} className="w-1/2 h-1/2" alt="loading"/>}

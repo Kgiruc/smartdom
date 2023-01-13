@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 
 const nameLocalStorage = JSON.parse(localStorage.getItem("name"))
-
 function NameStorage() {
     const [name, setName] = useState(nameLocalStorage);
 
