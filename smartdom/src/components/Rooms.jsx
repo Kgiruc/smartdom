@@ -7,16 +7,18 @@ function Rooms() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:8000/dane")
+        fetch("https://dbmicro-84106-default-rtdb.firebaseio.com/")
             .then(res => {
                 return res.json()
             })
             .then(data => {
                 setRoom(data);
                 setLoading(false)
+
             })
             .catch(e => console.log(e))
     }, [])
+
 
     return (
         <>
