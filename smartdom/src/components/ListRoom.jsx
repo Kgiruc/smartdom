@@ -3,10 +3,10 @@ import fan from "../assets/fan.png"
 function ListRoom({room}) {
     return (
         <div
-            className="grid grid-cols-1 md:grid-cols-2 w-[95%]  h-auto md:h-full text-center items-stretch items-end gap-5 m-auto mt-auto md:mt-[22vh] font-rubik">
+            className="grid grid-cols-1 md:grid-cols-2 w-[95%]  h-auto md:h-full text-center items-stretch items-end gap-5 m-auto  md:mt-[22vh] font-rubik bg-neutral-900">
             {room.map((room) => (
                 <div
-                    className="border-2 border-blue-500 text-white rounded-xl p-5 md:p-0  grid grid-cols-2 relative bg-neutral-800 p-8"
+                    className="border-2 border-blue-500 text-white rounded-xl p-5 md:p-0  grid grid-cols-2 relative bg-neutral-800 md:p-8"
                     key={room.id}>
                     {room.error === 1 ?
                         <p className="absolute left-2 top-1 w-3 h-3 md:w-4 md:h-4 rounded-[50%] bg-red-800 border-[1px] border-black"></p>

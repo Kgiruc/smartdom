@@ -22,7 +22,7 @@ function Rooms() {
         <>
         {
             room ? (
-                <div>
+                <div className="bg-neutral-900 pb-3">
                         <ListRoom room={room}/>
                 </div>
             ) : (

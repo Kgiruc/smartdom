@@ -18,7 +18,7 @@ function Weather() {
     }, [])
 
     return (
-        <div className="text-white text-3xl font-rubik float-right mr-2 md:mr-auto m-10 w-1/2">
+        <div className="text-white text-3xl font-rubik float-right mr-2 md:mr-5 m-10 w-1/2">
 
             {
                 weather.main ? (
