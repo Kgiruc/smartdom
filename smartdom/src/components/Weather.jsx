@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 import gif_loading from "../assets/gif/loading.gif";
-import NameStorage from "./NameStorage.jsx";
 
 function Weather() {
     const [weather, setWeather] = useState([{}]);
@@ -19,17 +18,18 @@ function Weather() {
     }, [])
 
     return (
-        <div className="text-white text-3xl font-rubik float-right p-10 w-1/2">
+        <div className="text-white text-3xl font-rubik float-right mr-2 md:mr-auto m-10 w-1/2">
 
             {
                 weather.main ? (
                     <div
-                        className="grid grid-rows-2 grid-cols-2 gap-3 text-center justify-center items-center border-2 border-blue-500 p-5 rounded-2xl">
-                        <p className="text-5xl font-bold">{Math.round(weather.main.temp)}°C</p>
-                        <img className="ml-auto mr-auto items-stretch row-span-2 w-1/2"
+                        className="grid grid-rows-2 grid-cols-2 gap-0 md:gap-3 text-center justify-center items-center border-2
+                        border-blue-500 p-5 rounded-2xl">
+                        <p className="text-3xl md:text-5xl font-bold">{Math.round(weather.main.temp)}°C</p>
+                        <img className="ml-auto mr-0 md:mr-auto items-stretch row-span-2 w-1/2"
                              src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
                              alt="weather_icon"/>
-                        <p className="text-xl">{weather.weather[0].description}</p>
+                        <p className="text-sm md:text-xl">{weather.weather[0].description}</p>
                     </div>
 
                 ) : (

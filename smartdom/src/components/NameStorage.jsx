@@ -9,11 +9,12 @@ function NameStorage() {
     }, [name])
 
     return (
-        <div>
+        <div className="w-1/2 md:w-auto">
             {
                 nameLocalStorage ?
                     (
-                        <div className="flex justify-center items-center m-[100px] text-5xl text-white font-rubik">
+                        <div className="flex md:justify-center md:items-center m-10 w-auto mt-20 md:m-[100px] text-xl md:text-5xl text-white
+                        font-rubik">
                             <p>Witaj, {name} </p>
                         </div>
                     ) : (

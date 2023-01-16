@@ -13,10 +13,10 @@ function NavBar() {
 
 
     return (
-        <nav className="text-white text-xl h-[4%] bg-neutral-800 text-2xl flex w-full justify-between gap-px items-center
+        <nav className="text-white text-base md:text-xl h-[4%] bg-neutral-800 text-2xl flex w-full justify-between gap-px items-center
          p-7 font-nunito font-bold">
             <a>{dateState} </a>
-            <a className="text-blue-500 text-3xl">SmartDom</a>
+            <a className="text-blue-500 text-lg md:text-3xl">SmartDom</a>
             <a>{clockState} </a>
         </nav>
     )
