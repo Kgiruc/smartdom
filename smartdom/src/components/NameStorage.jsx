@@ -19,11 +19,11 @@ function NameStorage() {
                         </div>
                     ) : (
                         <div className="m-2 md:m-5">
-                            <form className="m-10 flex-col justify-center items-center text-center">
+                            <form className="m-10 flex-col justify-center md:justify-start items-center md:items-start text-center">
                                 <label className="text-white text-xl md:text-3xl text-center font-nunito">
                                     Twoje imię:
                                     <input
-                                        className="bg-transparent border-b-2 border-blue-500 w-full md:w-1/2 text-center text-lg
+                                        className="bg-transparent border-b-2 border-blue-500 w-full md:w-5/12 text-center text-lg
                                         focus:outline-none focus:border-b-4  focus:border-blue-600 mt-0 md:mt-2"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
