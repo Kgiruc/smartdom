@@ -1,11 +1,7 @@
 import { initializeApp } from 'firebase/app';
-import {
-    getFirestore,
-    collection,
-    getDocs,
-} from 'firebase/firestore'
+import { getFirestore } from 'firebase/firestore';
 
-const  firebaseConfig = {
+const FIREBASE_CONFIG = {
     apiKey: "AIzaSyBa-ith4CzHcFqiFHJxKiHo5RVVlv7hwVM",
     authDomain: "dbmicro-84106.firebaseapp.com",
     databaseURL: "https://dbmicro-84106-default-rtdb.firebaseio.com",
@@ -15,14 +11,5 @@ const  firebaseConfig = {
     appId: "1:774473211335:web:b5c4d485307e3e2bbf0de2"
 };
 
-initializeApp(firebaseConfig)
-
-const db= getFirestore()
-
-const colRef = collection(db, "data")
-
-getDocs(colRef)
-    .then((snapshot) => {
-        console.log(snapshot.docs)
-    })
-
+const app = initializeApp(FIREBASE_CONFIG);
+export const db = getFirestore(app)
