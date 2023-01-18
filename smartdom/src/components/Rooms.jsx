@@ -3,7 +3,6 @@ import ListRoom from "./ListRoom.jsx";
 import {db} from "../../data/firebase-init.js";
 import gif_loading from "../assets/gif/loading.gif";
 import {collection, getDocs} from "firebase/firestore";
-import {data} from "autoprefixer";
 
 
 function Rooms() {
@@ -13,19 +12,6 @@ function Rooms() {
     useEffect(() => {
         getData();
     }, [])
-
-    // useEffect(() => {
-    //     fetch("https://dbmicro-84106-default-rtdb.firebaseio.com/")
-    //         .then(res => {
-    //             return res.json()
-    //         })
-    //         .then(data => {
-    //             setRoom(data);
-    //             setLoading(false)
-    //
-    //         })
-    //         .catch(e => console.log(e))
-    // }, [])
 
     function getData() {
         const roomCollectionRef = collection(db, 'dane')
@@ -37,7 +23,6 @@ function Rooms() {
                     }))
                 setRoom(dataRoom)
                 setLoading(false)
-                console.log(dataRoom[0].data.temp)
             })
             .catch(error => console.log(error.message))
     }
