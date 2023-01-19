@@ -1,13 +1,7 @@
 import fan from "../assets/fan.png"
 import bulb from "../assets/idea.png"
 
-function ListRoom({room}) {
-
-    function editLight() {
-        if(room.data.light === true) {
-            console.log(room.data);
-        }
-    }
+function ListRoom({room, getRoomId}) {
 
     return (
         <div
@@ -41,11 +35,17 @@ function ListRoom({room}) {
                              className="lg:w-20 lg:h-20 w-12 h-12 bg-transparent  row-span-2 absolute right-4 top-2"/>
                     }
                     {room.data.light === true ?
-                        <button  onClick={editLight} className="cursor-pointer"><img src={bulb} alt="fan"
-                             className="lg:w-20 lg:h-20 w-12 h-12 bg-transparent invert-[1] animate-pulse"/></button>
-                    :
-                       <button className="cursor-pointer"> <img src={bulb} alt="fan"
-                             className="lg:w-20 lg:h-20 w-12 h-12 bg-transparent "/> </button>
+                        <button onClick={(e) => getRoomId(room.id)} className="cursor-pointer">
+                            <img src={bulb}
+                                 alt="fan"
+                                 className="lg:w-20 lg:h-20 w-12 h-12 bg-transparent invert-[1] animate-pulse"/>
+                        </button>
+                        :
+                        <button onClick={(e) => getRoomId(room.id)} className="cursor-pointer">
+                            <img src={bulb}
+                                 alt="fan"
+                                 className="lg:w-20 lg:h-20 w-12 h-12 bg-transparent "/>
+                        </button>
                     }
                     <p className="text-sm md:text-base absolute left-2 bottom-1"> {room.data.name}</p>
                 </div>

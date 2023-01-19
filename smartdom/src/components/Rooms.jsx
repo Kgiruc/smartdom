@@ -1,20 +1,32 @@
 import {useEffect, useState} from "react";
 import ListRoom from "./ListRoom.jsx";
-import {db} from "../../data/firebase-init.js";
 import gif_loading from "../assets/gif/loading.gif";
-import {collection, getDocs} from "firebase/firestore";
+import {getDocs, doc, updateDoc} from "firebase/firestore";
+import {roomCollectionRef} from "../../data/firestore.collection.js";
 
 
 function Rooms() {
     const [room, setRoom] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [light, setLight] = useState(true);
 
     useEffect(() => {
         getData();
     }, [])
 
+
+    function getRoomIdHandler(id) {
+        const docRef = doc(roomCollectionRef, id);
+        setLight((value) => !value)
+            const payload = {
+                light: light
+            }
+
+        updateDoc(docRef, payload);
+        setInterval(getData,1)
+    }
+
     function getData() {
-        const roomCollectionRef = collection(db, 'dane')
         getDocs(roomCollectionRef)
             .then(res => {
                 const dataRoom = res.docs.map(doc =>
@@ -32,8 +44,7 @@ function Rooms() {
             {
                 room ? (
                     <div className="bg-neutral-900 pb-3">
-                        <ListRoom room={room}/>
-                        {/*{<p>{room[0].data.temp}</p>}*/}
+                        <ListRoom room={room} getRoomId={getRoomIdHandler}  />
                     </div>
                 ) : (
                     <div className="w-full h-full flex items-center justify-center w-20 h-20">
