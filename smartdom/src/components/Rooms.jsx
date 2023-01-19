@@ -8,29 +8,31 @@ import {roomCollectionRef} from "../../data/firestore.collection.js";
 function Rooms() {
     const [room, setRoom] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [light, setLight] = useState(true);
+    const [light, setLight] = useState(false);
 
     useEffect(() => {
-        getData();
+        setInterval(() => {
+                getData()
+            }, 500
+        )
     }, [])
 
 
     function getRoomIdHandler(id) {
         const docRef = doc(roomCollectionRef, id);
-        setLight((value) => !value)
-            const payload = {
-                light: light
-            }
-
+        setLight((e) => !e)
+        const payload = {
+            light: light
+        }
         updateDoc(docRef, payload);
-        setInterval(getData,1)
     }
 
     function getData() {
         getDocs(roomCollectionRef)
             .then(res => {
                 const dataRoom = res.docs.map(doc =>
-                    ({data: doc.data(),
+                    ({
+                        data: doc.data(),
                         id: doc.id,
                     }))
                 setRoom(dataRoom)
@@ -44,7 +46,7 @@ function Rooms() {
             {
                 room ? (
                     <div className="bg-neutral-900 pb-3">
-                        <ListRoom room={room} getRoomId={getRoomIdHandler}  />
+                        <ListRoom room={room} getRoomId={getRoomIdHandler}/>
                     </div>
                 ) : (
                     <div className="w-full h-full flex items-center justify-center w-20 h-20">

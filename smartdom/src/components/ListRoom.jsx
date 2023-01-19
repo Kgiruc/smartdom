@@ -9,7 +9,7 @@ function ListRoom({room, getRoomId}) {
             md:mt-[22vh] font-rubik bg-neutral-900">
             {room.map((room) => (
                 <div
-                    className="border-2 border-blue-500 text-white rounded-xl p-5 md:p-0  grid grid-cols-2 relative bg-neutral-800 md:p-8"
+                    className="border-2 border-blue-500 text-white rounded-xl p-5 md:p-0  grid grid-cols-3 relative bg-neutral-800 md:p-8"
                     key={room.data.id}>
                     {room.data.error === 1 ?
                         <p className="absolute left-2 top-1 w-3 h-3 md:w-4 md:h-4 rounded-[50%] bg-red-800 border-[1px] border-black"></p>
@@ -29,7 +29,7 @@ function ListRoom({room, getRoomId}) {
                     {room.data.fan === 1 ?
                         <img src={fan} alt="fan"
                              className="lg:w-20 lg:h-20 w-12 h-12 bg-transparent invert-[1] motion-safe:animate-spin row-span-2
-                             absolute right-4 top-2"/>
+                             absolute right-4 top-3"/>
                         :
                         <img src={fan} alt="fan"
                              className="lg:w-20 lg:h-20 w-12 h-12 bg-transparent  row-span-2 absolute right-4 top-2"/>
@@ -37,14 +37,14 @@ function ListRoom({room, getRoomId}) {
                     {room.data.light === true ?
                         <button onClick={(e) => getRoomId(room.id)} className="cursor-pointer">
                             <img src={bulb}
-                                 alt="fan"
-                                 className="lg:w-20 lg:h-20 w-12 h-12 bg-transparent invert-[1] animate-pulse"/>
+                                 alt="bulb"
+                                 className="lg:w-20 lg:h-20 w-10 h-10 bg-transparent invert-[1] m-0 animate-pulse"/>
                         </button>
                         :
-                        <button onClick={(e) => getRoomId(room.id)} className="cursor-pointer">
+                        <button onClick={(e) => getRoomId(room.id, room.light)} className="cursor-pointer">
                             <img src={bulb}
-                                 alt="fan"
-                                 className="lg:w-20 lg:h-20 w-12 h-12 bg-transparent "/>
+                                 alt="bulb"
+                                 className="lg:w-20 lg:h-20 w-10 h-10 bg-transparent "/>
                         </button>
                     }
                     <p className="text-sm md:text-base absolute left-2 bottom-1"> {room.data.name}</p>
