@@ -16,7 +16,7 @@ function ListRoom({room, getRoomId}) {
                         :
                         <p className="absolute left-2 top-1 w-3 h-3 md:w-4 md:h-4 rounded-[50%] bg-green-400 border-[1px] border-black"></p>
                     }
-                    <span className="row-span-2 mt-auto mb-auto text-xl md:text-4xl text-center md:text-left lg:ml-14 sm:ml-1
+                    <span className="row-span-2 mt-auto mb-auto text-xl md:text-4xl text-center md:text-left lg:ml-5 sm:ml-1
                     before:content-[''] before:bg-[length:30px_25px] before:w-[30px] before:h-[25px]
                     before:inline-block before:bg-[url('../assets/thermometer.png')] before:invert-[1]">
                         {room.data.temp}°C
@@ -38,7 +38,7 @@ function ListRoom({room, getRoomId}) {
                         <button onClick={(e) => getRoomId(room.id)} className="cursor-pointer">
                             <img src={bulb}
                                  alt="bulb"
-                                 className="lg:w-20 lg:h-20 w-10 h-10 bg-transparent invert-[1] m-0 animate-pulse"/>
+                                 className="lg:w-20 lg:h-20 w-10 h-10 bg-transparent invert-[1]  animate-pulse"/>
                         </button>
                         :
                         <button onClick={(e) => getRoomId(room.id, room.light)} className="cursor-pointer">
